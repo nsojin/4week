@@ -17,21 +17,22 @@ class SignUpActivity : AppCompatActivity() {
             val name = findViewById<EditText>(R.id.Name2)
             val c_id = findViewById<EditText>(R.id.CreateId2)
             val c_pw = findViewById<EditText>(R.id.CreatePassword2)
+            val NameData = name.text.toString()
+            val IdData = c_id.text.toString()
+            val PasswordData = c_pw.text.toString()
 
-            if(name.length() == 0 && c_id.length() == 0 && c_pw.length()== 0){
+            if(NameData.isEmpty()){
                 Toast.makeText(applicationContext, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             }
 
-            else if(c_id.length() == 0){
+            else if(IdData.isEmpty()){
                 Toast.makeText(applicationContext, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             }
 
-            else if(c_pw.length() == 0){
+            else if(PasswordData.isEmpty()){
                 Toast.makeText(applicationContext, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             }
             else {
-                val IdData = c_id.text.toString()
-                val PasswordData = c_pw.text.toString()
                 val intent = Intent(this,SignInActivity::class.java)
                 intent.putExtra("dataFromSignUpActivity",IdData)
                 intent.putExtra("dataFromSignUpActivity2",PasswordData)

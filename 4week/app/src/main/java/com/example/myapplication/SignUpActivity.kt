@@ -14,31 +14,20 @@ class SignUpActivity : AppCompatActivity() {
 
         val btn3 = findViewById<Button>(R.id.btn_createAcount2)
         btn3.setOnClickListener {
-            val name = findViewById<EditText>(R.id.Name2)
-            val c_id = findViewById<EditText>(R.id.CreateId2)
-            val c_pw = findViewById<EditText>(R.id.CreatePassword2)
-            val NameData = name.text.toString()
-            val IdData = c_id.text.toString()
-            val PasswordData = c_pw.text.toString()
+            val name = findViewById<EditText>(R.id.Name2).text.toString()
+            val c_id = findViewById<EditText>(R.id.CreateId2).text.toString()
+            val c_pw = findViewById<EditText>(R.id.CreatePassword2).text.toString()
 
-            if(NameData.isEmpty()){
-                Toast.makeText(applicationContext, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
-            }
-
-            else if(IdData.isEmpty()){
-                Toast.makeText(applicationContext, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
-            }
-
-            else if(PasswordData.isEmpty()){
-                Toast.makeText(applicationContext, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            if(name.isNotEmpty() && c_id.isNotEmpty() && c_pw.isNotEmpty()){
                 val intent = Intent(this,SignInActivity::class.java)
-                intent.putExtra("dataFromSignUpActivity",IdData)
-                intent.putExtra("dataFromSignUpActivity2",PasswordData)
+                intent.putExtra("dataFromSignUpActivity",c_id)
+                intent.putExtra("dataFromSignUpActivity2",c_pw)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "회원가입 완료", Toast.LENGTH_SHORT).show()
+            }
 
+            else {
+                Toast.makeText(applicationContext, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             }
         }
     }

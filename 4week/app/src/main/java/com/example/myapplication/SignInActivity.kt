@@ -17,17 +17,14 @@ class SignInActivity : AppCompatActivity() {
             val id = findViewById<EditText>(R.id.Id2).text.toString()
             val password = findViewById<EditText>(R.id.password2).text.toString()
 
-            if (id.isEmpty() && password.isEmpty()) {
-                Toast.makeText(applicationContext, "아이디와 비밀번호를 입력해 주세요.", Toast.LENGTH_SHORT).show()
-            } else if (id.isEmpty()) {
-                Toast.makeText(applicationContext, "아이디를 입력해 주세요.", Toast.LENGTH_SHORT).show()
-            } else if (password.isEmpty()) {
-                Toast.makeText(applicationContext, "비밀번호를 입력해 주세요.", Toast.LENGTH_SHORT).show()
-            } else {
+            if (id.isNotEmpty() && password.isNotEmpty()) {
                 val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra("dataFromSignInActivity", id)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "로그인 성공!", Toast.LENGTH_SHORT).show()
+
+            } else {
+                Toast.makeText(applicationContext, "아이디 또는 비밀번호를 입력해 주세요.", Toast.LENGTH_SHORT).show()
             }
         }
 

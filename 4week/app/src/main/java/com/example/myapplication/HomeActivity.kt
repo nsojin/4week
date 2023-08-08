@@ -1,13 +1,16 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 
 class HomeActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -29,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
         val v_id = findViewById<TextView>(R.id.View_id)
         v_id.setText(strData)
 
-        val btn_finish = findViewById<Button>(R.id.btn_finish)
+        val btn_finish = findViewById<ConstraintLayout>(R.id.btn_finish)
         btn_finish.setOnClickListener {
             finish()
         }
